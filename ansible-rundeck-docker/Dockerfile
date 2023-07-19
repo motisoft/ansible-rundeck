@@ -1,7 +1,6 @@
-FROM rundeck/rundeck:4.4.0
+FROM rundeck/rundeck:4.14.2
 
 # minimal rundeck with ansible
-# no mariadb
 
 USER root
 
@@ -24,8 +23,8 @@ RUN pip install ansible
 
 # we download the debian package for vscode server from the coder github repo
 # and install it with apt
-RUN wget https://github.com/coder/code-server/releases/download/v4.6.0/code-server_4.6.0_amd64.deb
-RUN apt -y install ./code-server_4.6.0_amd64.deb
+RUN wget https://github.com/coder/code-server/releases/download/v4.14.1/code-server_4.14.1_amd64.deb
+RUN apt -y install ./code-server_4.14.1_amd64.deb
 RUN apt-get clean
 # for compatibility with the non-docker version we just link the
 # /var/lib/rundeck directory to the /home/rundeck directory
